@@ -101,8 +101,8 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    body { background: #0B1530; color: #F0F2F7; overflow-x: hidden; font-family: 'Source Sans 3', sans-serif; }
-    ::selection { background: rgba(0, 217, 166, 0.25); color: #F0F2F7; }
+    body { background: #0E0E16; color: #F0ECE2; overflow-x: hidden; font-family: 'Source Sans 3', sans-serif; }
+    ::selection { background: rgba(220, 168, 80, 0.25); color: #F0ECE2; }
     a { text-decoration: none; }
     @media (max-width: 768px) {
       .desktop-nav { display: none !important; }
@@ -189,11 +189,11 @@
     const { useState, useEffect, useRef } = React;
 
     // ─── Color System (Direction C: "Controlled Depth") ─────────────
-    // Navy primary: #0B1530, #121E3D, #1B2559
-    // Oceanic blue secondary: #2E6B9E, #4A90C4, #7AB8E0, #B8D9F0
-    // Teal accent: #00D9A6, #00C896, #00F0B8
-    // Warm white: #F0F2F7, #D4DAE7
-    // Muted steel: #8E9DBF
+    // Navy primary: #0E0E16, #121218, #1B2559
+    // Oceanic blue secondary: #2E6B9E, #4D7AFF, #6B92FF, #B8D9F0
+    // Teal accent: #DCA850, #C89840, #E8B85A
+    // Warm white: #F0ECE2, #E0DCD0
+    // Muted steel: #8A867C
 
     const SECTIONS = ["hero","problem","solution","why-now","credibility","team","vision","contact"];
 
@@ -249,22 +249,22 @@
     function LogoSVG({ size = 28 }) {
       return (
         <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
-          <circle cx="20" cy="8" r="5" fill="#4A90C4" />
-          <circle cx="10" cy="28" r="4" fill="#4A90C4" />
-          <circle cx="30" cy="28" r="4" fill="#4A90C4" />
-          <circle cx="20" cy="36" r="3" fill="#00D9A6" />
-          <line x1="20" y1="13" x2="12" y2="24" stroke="#4A90C4" strokeWidth="1.5" />
-          <line x1="20" y1="13" x2="28" y2="24" stroke="#4A90C4" strokeWidth="1.5" />
-          <line x1="14" y1="28" x2="26" y2="28" stroke="#4A90C4" strokeWidth="1.5" />
-          <line x1="20" y1="33" x2="20" y2="28" stroke="#00D9A6" strokeWidth="1.5" />
+          <circle cx="20" cy="8" r="5" fill="#4D7AFF" />
+          <circle cx="10" cy="28" r="4" fill="#4D7AFF" />
+          <circle cx="30" cy="28" r="4" fill="#4D7AFF" />
+          <circle cx="20" cy="36" r="3" fill="#DCA850" />
+          <line x1="20" y1="13" x2="12" y2="24" stroke="#4D7AFF" strokeWidth="1.5" />
+          <line x1="20" y1="13" x2="28" y2="24" stroke="#4D7AFF" strokeWidth="1.5" />
+          <line x1="14" y1="28" x2="26" y2="28" stroke="#4D7AFF" strokeWidth="1.5" />
+          <line x1="20" y1="33" x2="20" y2="28" stroke="#DCA850" strokeWidth="1.5" />
         </svg>
       );
     }
 
-    function LogoText({ size = 18, color = "#F0F2F7" }) {
+    function LogoText({ size = 18, color = "#F0ECE2" }) {
       return (
         <span style={{ fontFamily: sans, fontWeight: 600, fontSize: size, color, letterSpacing: "-0.02em" }}>
-          Prompt<span style={{ color: "#4A90C4" }}>TANK</span>
+          Prompt<span style={{ color: "#4D7AFF" }}>TANK</span>
         </span>
       );
     }
@@ -292,9 +292,9 @@
       return (
         <nav style={{
           position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-          background: scrolled ? "rgba(11,21,48,0.95)" : "transparent",
+          background: scrolled ? "rgba(16,16,24,0.95)" : "transparent",
           backdropFilter: scrolled ? "blur(12px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(42,63,110,0.3)" : "1px solid transparent",
+          borderBottom: scrolled ? "1px solid rgba(100,90,70,0.3)" : "1px solid transparent",
           transition: "all 0.4s ease", padding: "0 24px",
         }}>
           <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
@@ -305,22 +305,22 @@
               {navItems.map(item => (
                 <a key={item.id} href={`#${item.id}`} style={{
                   fontSize: 14, fontFamily: sans, fontWeight: 500,
-                  color: active === item.id ? "#00D9A6" : "#B0BDDA",
+                  color: active === item.id ? "#DCA850" : "#CCC8BE",
                   letterSpacing: "0.04em", textTransform: "uppercase", transition: "color 0.3s",
                 }}>{item.label}</a>
               ))}
             </div>
             <button className="mobile-toggle" onClick={() => setMobileOpen(!mobileOpen)}
-              style={{ display: "none", background: "none", border: "none", color: "#F0F2F7", fontSize: 24, cursor: "pointer" }}>
+              style={{ display: "none", background: "none", border: "none", color: "#F0ECE2", fontSize: 24, cursor: "pointer" }}>
               {mobileOpen ? "✕" : "☰"}
             </button>
           </div>
           {mobileOpen && (
-            <div style={{ background: "rgba(11,21,48,0.98)", padding: "16px 24px", display: "flex", flexDirection: "column", gap: 16 }} className="mobile-menu">
+            <div style={{ background: "rgba(16,16,24,0.98)", padding: "16px 24px", display: "flex", flexDirection: "column", gap: 16 }} className="mobile-menu">
               {navItems.map(item => (
                 <a key={item.id} href={`#${item.id}`} onClick={() => setMobileOpen(false)} style={{
                   fontSize: 15, fontFamily: sans, fontWeight: 500,
-                  color: active === item.id ? "#00D9A6" : "#B0BDDA",
+                  color: active === item.id ? "#DCA850" : "#CCC8BE",
                   letterSpacing: "0.04em", textTransform: "uppercase",
                 }}>{item.label}</a>
               ))}
@@ -335,27 +335,27 @@
       return (
         <section id="hero" style={{
           minHeight: "100vh",
-          background: "linear-gradient(170deg, #0B1530 0%, #121E3D 40%, #162044 70%, #0D1A38 100%)",
+          background: "linear-gradient(170deg, #0E0E16 0%, #121218 40%, #16161F 70%, #111119 100%)",
           display: "flex", alignItems: "center", justifyContent: "center",
           position: "relative", overflow: "hidden", padding: "120px 24px 80px",
         }}>
           <div style={{
             position: "absolute", inset: 0, opacity: 0.04,
-            backgroundImage: "linear-gradient(rgba(74,144,196,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(74,144,196,0.5) 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(rgba(160,140,100,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(160,140,100,0.5) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }} />
           <div style={{
             position: "absolute", top: "20%", left: "50%", transform: "translate(-50%, -50%)",
             width: 600, height: 600, borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(0,217,166,0.06) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(220,168,80,0.06) 0%, transparent 70%)",
           }} />
           <div style={{ maxWidth: 800, textAlign: "center", position: "relative", zIndex: 2 }}>
             <FadeIn>
               <div style={{
                 display: "inline-block", padding: "6px 16px", borderRadius: 20,
-                border: "1px solid rgba(0,217,166,0.3)", background: "rgba(0,217,166,0.08)", marginBottom: 28,
+                border: "1px solid rgba(220,168,80,0.3)", background: "rgba(220,168,80,0.08)", marginBottom: 28,
               }}>
-                <span style={{ fontFamily: mono, fontSize: 12, color: "#00D9A6", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 500 }}>
+                <span style={{ fontFamily: mono, fontSize: 12, color: "#DCA850", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 500 }}>
                   Patent-Pending · Peer-Reviewed
                 </span>
               </div>
@@ -363,40 +363,40 @@
             <FadeIn delay={0.1}>
               <h1 style={{
                 fontFamily: serif, fontSize: "clamp(36px, 5.5vw, 64px)", fontWeight: 700,
-                color: "#F0F2F7", lineHeight: 1.1, letterSpacing: "-0.03em", margin: "0 0 24px",
+                color: "#F0ECE2", lineHeight: 1.1, letterSpacing: "-0.03em", margin: "0 0 24px",
               }}>
                 Governance Infrastructure<br />
-                <span style={{ color: "#4A90C4" }}>for the AI Era</span>
+                <span style={{ color: "#4D7AFF" }}>for the AI Era</span>
               </h1>
             </FadeIn>
             <FadeIn delay={0.2}>
               <p style={{
-                fontFamily: sans, fontSize: "clamp(17px, 2vw, 20px)", color: "#B0BDDA",
+                fontFamily: sans, fontSize: "clamp(17px, 2vw, 20px)", color: "#CCC8BE",
                 lineHeight: 1.65, maxWidth: 620, margin: "0 auto 40px",
               }}>
                 Every AI safety tool on the market gives you a confidence score — a statistical guess that the output is probably fine.
                 You can't take a confidence score to a judge.
                 <br /><br />
-                <span style={{ color: "#D4DAE7" }}>PromptTank gives you a receipt.</span>
+                <span style={{ color: "#E0DCD0" }}>PromptTank gives you a receipt.</span>
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>
               <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="#contact" style={{
-                  display: "inline-block", padding: "14px 32px", background: "#00D9A6", color: "#0B1530",
+                  display: "inline-block", padding: "14px 32px", background: "#DCA850", color: "#0E0E16",
                   fontFamily: sans, fontWeight: 600, fontSize: 16, borderRadius: 6, letterSpacing: "-0.01em",
                   transition: "transform 0.2s, box-shadow 0.2s",
                 }}
-                  onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 8px 30px rgba(0,217,166,0.25)"; }}
+                  onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 8px 30px rgba(220,168,80,0.3)"; }}
                   onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}
                 >Get in Touch</a>
                 <a href="#solution" style={{
-                  display: "inline-block", padding: "14px 32px", background: "transparent", color: "#B0BDDA",
+                  display: "inline-block", padding: "14px 32px", background: "transparent", color: "#CCC8BE",
                   fontFamily: sans, fontWeight: 500, fontSize: 16, borderRadius: 6,
                   border: "1px solid rgba(136,150,179,0.3)", letterSpacing: "-0.01em", transition: "all 0.2s",
                 }}
-                  onMouseEnter={e => { e.target.style.color = "#F0F2F7"; e.target.style.borderColor = "rgba(136,150,179,0.6)"; }}
-                  onMouseLeave={e => { e.target.style.color = "#B0BDDA"; e.target.style.borderColor = "rgba(136,150,179,0.3)"; }}
+                  onMouseEnter={e => { e.target.style.color = "#F0ECE2"; e.target.style.borderColor = "rgba(136,150,179,0.6)"; }}
+                  onMouseLeave={e => { e.target.style.color = "#CCC8BE"; e.target.style.borderColor = "rgba(136,150,179,0.3)"; }}
                 >How It Works →</a>
               </div>
             </FadeIn>
@@ -407,12 +407,12 @@
 
     // ─── SECTION LABEL ──────────────────────────────────────────────
     function SectionLabel({ text }) {
-      return <span style={{ fontFamily: mono, fontSize: 12, color: "#00D9A6", letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500 }}>{text}</span>;
+      return <span style={{ fontFamily: mono, fontSize: 12, color: "#DCA850", letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500 }}>{text}</span>;
     }
     function SectionTitle({ children, maxWidth }) {
       return (
         <h2 style={{
-          fontFamily: serif, fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 700, color: "#F0F2F7",
+          fontFamily: serif, fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 700, color: "#F0ECE2",
           lineHeight: 1.15, letterSpacing: "-0.025em", margin: "16px 0 20px", maxWidth: maxWidth || "none",
         }}>{children}</h2>
       );
@@ -421,17 +421,17 @@
     // ─── PROBLEM ────────────────────────────────────────────────────
     function Problem() {
       return (
-        <section id="problem" style={{ background: "#0D1A38", padding: "100px 24px", position: "relative" }}>
+        <section id="problem" style={{ background: "#111119", padding: "100px 24px", position: "relative" }}>
           <div style={{ maxWidth: 900, margin: "0 auto" }}>
             <FadeIn>
               <SectionLabel text="The Problem" />
               <SectionTitle maxWidth={700}>
                 AI is everywhere. <br />
-                <span style={{ color: "#8E9DBF" }}>No one can prove it's working safely.</span>
+                <span style={{ color: "#8A867C" }}>No one can prove it's working safely.</span>
               </SectionTitle>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <p style={{ fontFamily: sans, fontSize: 19, color: "#B0BDDA", lineHeight: 1.75, maxWidth: 680, marginBottom: 48 }}>
+              <p style={{ fontFamily: sans, fontSize: 19, color: "#CCC8BE", lineHeight: 1.75, maxWidth: 680, marginBottom: 48 }}>
                 When a staff member at a financial firm uses AI, the response often reaches the client before anyone has checked it. Fabricated regulation, wrong figures, hallucinated policy — that's the firm's legal exposure. And every safety tool on the market gives you a confidence score. A statistical guess. Probabilistic, not provable.
               </p>
             </FadeIn>
@@ -443,32 +443,59 @@
               ].map((item, i) => (
                 <FadeIn key={i} delay={0.15 + i * 0.1}>
                   <div style={{
-                    background: "rgba(27,37,89,0.5)", border: "1px solid rgba(74,144,196,0.2)",
+                    background: "rgba(30,28,38,0.5)", border: "1px solid rgba(160,140,100,0.2)",
                     borderRadius: 8, padding: "28px 24px",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.3), 0 0 0 1px rgba(74,144,196,0.08)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.3), 0 0 0 1px rgba(160,140,100,0.08)",
                   }}>
-                    <div style={{ fontFamily: mono, fontSize: 32, fontWeight: 700, color: "#00D9A6", marginBottom: 8 }}>{item.stat}</div>
-                    <div style={{ fontFamily: sans, fontSize: 16, color: "#E8ECF4", lineHeight: 1.5, marginBottom: 8 }}>{item.label}</div>
-                    <div style={{ fontFamily: mono, fontSize: 13, color: "#7A8FAD", letterSpacing: "0.02em", fontWeight: 500 }}>{item.source}</div>
+                    <div style={{ fontFamily: mono, fontSize: 32, fontWeight: 700, color: "#DCA850", marginBottom: 8 }}>{item.stat}</div>
+                    <div style={{ fontFamily: sans, fontSize: 16, color: "#EAE6DC", lineHeight: 1.5, marginBottom: 8 }}>{item.label}</div>
+                    <div style={{ fontFamily: mono, fontSize: 13, color: "#968E80", letterSpacing: "0.02em", fontWeight: 500 }}>{item.source}</div>
                   </div>
                 </FadeIn>
               ))}
             </div>
             <FadeIn delay={0.5}>
-              <div style={{ marginTop: 48, borderTop: "1px solid rgba(74,144,196,0.1)", paddingTop: 40 }}>
-                <span style={{ fontFamily: mono, fontSize: 12, color: "#7A8FAD", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                  When AI gets it wrong
+              <div style={{ marginTop: 56, borderTop: "1px solid rgba(160,140,100,0.1)", paddingTop: 40 }}>
+                <span style={{ fontFamily: mono, fontSize: 13, color: "#E85A5A", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 600 }}>
+                  When AI Gets It Wrong
                 </span>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20, marginTop: 20 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))", gap: 20, marginTop: 24 }}>
                   {[
-                    { field: "Legal", text: "An attorney received a record $10,000 fine after 21 of 23 citations in a brief were fictitious. The AI invented them." },
-                    { field: "Aviation", text: "Air Canada was held legally responsible for a bereavement policy its chatbot invented. The court rejected the defense that the AI was a separate entity." },
-                    { field: "Finance", text: "Nearly 50% of enterprise AI users made at least one major decision based on hallucinated content in 2024." },
+                    { field: "Legal", text: "An attorney received a record $10,000 fine after 21 of 23 citations in a brief were fictitious.", punchline: "The AI invented them." },
+                    { field: "Aviation", text: "Air Canada was held legally responsible for a bereavement policy its chatbot invented.", punchline: "The court ruled the AI was the company's liability." },
+                    { field: "Finance", text: "Nearly 50% of enterprise AI users made at least one major decision based on hallucinated content in 2024.", punchline: "They didn't know it was wrong." },
                   ].map((item, i) => (
-                    <div key={i} style={{ padding: "20px 20px", borderLeft: "2px solid rgba(74,144,196,0.25)" }}>
-                      <span style={{ fontFamily: mono, fontSize: 11, color: "#4A90C4", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 600 }}>{item.field}</span>
-                      <p style={{ fontFamily: sans, fontSize: 16, color: "#B0BDDA", lineHeight: 1.65, marginTop: 8 }}>{item.text}</p>
-                    </div>
+                    <FadeIn key={i} delay={0.55 + i * 0.1}>
+                      <div style={{
+                        background: "#F8F4EC",
+                        borderRadius: 8,
+                        padding: "28px 24px",
+                        boxShadow: "0 4px 24px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.05)",
+                        position: "relative",
+                        overflow: "hidden",
+                      }}>
+                        <div style={{
+                          position: "absolute", top: 0, left: 0, width: "100%", height: 3,
+                          background: "linear-gradient(90deg, #E85A5A, #C94040)",
+                        }} />
+                        <span style={{ fontFamily: mono, fontSize: 12, color: "#E85A5A", letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 700 }}>
+                          {item.field}
+                        </span>
+                        <p style={{ fontFamily: sans, fontSize: 16, color: "#1A1A2E", lineHeight: 1.65, marginTop: 12, marginBottom: 14 }}>
+                          {item.text}
+                        </p>
+                        <div style={{
+                          background: "rgba(232,90,90,0.08)",
+                          border: "1px solid rgba(232,90,90,0.2)",
+                          borderRadius: 4,
+                          padding: "10px 14px",
+                        }}>
+                          <p style={{ fontFamily: serif, fontSize: 16, color: "#C42B2B", lineHeight: 1.4, fontWeight: 600, margin: 0 }}>
+                            {item.punchline}
+                          </p>
+                        </div>
+                      </div>
+                    </FadeIn>
                   ))}
                 </div>
               </div>
@@ -481,20 +508,20 @@
     // ─── SOLUTION ───────────────────────────────────────────────────
     function Solution() {
       const caps = [
-        { key: "VALIDATE", title: "Deterministic Output Testing", desc: "Every AI output is tested against configurable business rules, compliance constraints, and safety thresholds before it reaches users. Not probabilistic — deterministic. Pass or fail.", color: "#00D9A6" },
-        { key: "AUDIT", title: "Full Decision Traceability", desc: "Every validation decision is logged with full context: what was tested, which rules applied, what passed, what failed, and why. A defensible audit trail built for regulators.", color: "#4A90C4" },
-        { key: "GOVERN", title: "Policy Rule Configuration", desc: "Organizations define their own governance rules — compliance requirements, brand guidelines, safety thresholds — and the system enforces them automatically.", color: "#7AB8E0" },
+        { key: "VALIDATE", title: "Deterministic Output Testing", desc: "Every AI output is tested against configurable business rules, compliance constraints, and safety thresholds before it reaches users. Not probabilistic — deterministic. Pass or fail.", color: "#DCA850" },
+        { key: "AUDIT", title: "Full Decision Traceability", desc: "Every validation decision is logged with full context: what was tested, which rules applied, what passed, what failed, and why. A defensible audit trail built for regulators.", color: "#4D7AFF" },
+        { key: "GOVERN", title: "Policy Rule Configuration", desc: "Organizations define their own governance rules — compliance requirements, brand guidelines, safety thresholds — and the system enforces them automatically.", color: "#6B92FF" },
       ];
       return (
         <section id="solution" style={{
-          background: "linear-gradient(180deg, #0D1A38 0%, #0F1E40 50%, #0D1A38 100%)",
+          background: "linear-gradient(180deg, #111119 0%, #14141E 50%, #111119 100%)",
           padding: "100px 24px", position: "relative",
         }}>
           <div style={{ maxWidth: 900, margin: "0 auto" }}>
             <FadeIn>
               <SectionLabel text="The Solution" />
               <SectionTitle maxWidth={650}>Proof, not probability.</SectionTitle>
-              <p style={{ fontFamily: sans, fontSize: 19, color: "#B0BDDA", lineHeight: 1.7, maxWidth: 640, marginBottom: 56 }}>
+              <p style={{ fontFamily: sans, fontSize: 19, color: "#CCC8BE", lineHeight: 1.7, maxWidth: 640, marginBottom: 56 }}>
                 PromptTank validates AI outputs in real time — before they reach users. Model-agnostic. Sub-second. Same input, same rules, same verdict. Every time.
               </p>
             </FadeIn>
@@ -502,23 +529,23 @@
               {caps.map((cap, i) => (
                 <FadeIn key={i} delay={0.1 + i * 0.12}>
                   <div style={{
-                    background: "rgba(18,30,61,0.6)", border: "1px solid rgba(74,144,196,0.15)",
+                    background: "rgba(26,24,32,0.6)", border: "1px solid rgba(160,140,100,0.15)",
                     borderRadius: 8, padding: "32px 24px", position: "relative", overflow: "hidden",
                   }}>
                     <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: 2, background: `linear-gradient(90deg, ${cap.color}, transparent)` }} />
                     <span style={{ fontFamily: mono, fontSize: 12, color: cap.color, letterSpacing: "0.12em", fontWeight: 600 }}>{cap.key}</span>
-                    <h3 style={{ fontFamily: serif, fontSize: 20, fontWeight: 600, color: "#F0F2F7", margin: "12px 0 10px", letterSpacing: "-0.01em" }}>{cap.title}</h3>
-                    <p style={{ fontFamily: sans, fontSize: 16, color: "#B0BDDA", lineHeight: 1.65, margin: 0 }}>{cap.desc}</p>
+                    <h3 style={{ fontFamily: serif, fontSize: 20, fontWeight: 600, color: "#F0ECE2", margin: "12px 0 10px", letterSpacing: "-0.01em" }}>{cap.title}</h3>
+                    <p style={{ fontFamily: sans, fontSize: 16, color: "#CCC8BE", lineHeight: 1.65, margin: 0 }}>{cap.desc}</p>
                   </div>
                 </FadeIn>
               ))}
             </div>
             <FadeIn delay={0.5}>
               <div style={{
-                marginTop: 48, background: "rgba(18,30,61,0.4)",
-                border: "1px solid rgba(74,144,196,0.1)", borderRadius: 8, padding: "28px 28px",
+                marginTop: 48, background: "rgba(26,24,32,0.4)",
+                border: "1px solid rgba(160,140,100,0.1)", borderRadius: 8, padding: "28px 28px",
               }}>
-                <div style={{ fontFamily: mono, fontSize: 12, color: "#7A8FAD", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
+                <div style={{ fontFamily: mono, fontSize: 12, color: "#968E80", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
                   How It Works
                 </div>
                 <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
@@ -530,27 +557,27 @@
                   ].map((step, i) => (
                     <div key={i} style={{ display: "flex", alignItems: "center", gap: 12 }}>
                       <div style={{
-                        background: i === 3 ? "rgba(0,217,166,0.12)" : "rgba(74,144,196,0.08)",
-                        border: `1px solid ${i === 3 ? "rgba(0,217,166,0.25)" : "rgba(74,144,196,0.15)"}`,
+                        background: i === 3 ? "rgba(220,168,80,0.12)" : "rgba(160,140,100,0.08)",
+                        border: `1px solid ${i === 3 ? "rgba(220,168,80,0.25)" : "rgba(160,140,100,0.15)"}`,
                         borderRadius: 6, padding: "10px 16px",
                       }}>
-                        <span style={{ fontFamily: sans, fontSize: 15, color: i === 3 ? "#00D9A6" : "#D4DAE7", fontWeight: 500 }}>{step.label}</span>
+                        <span style={{ fontFamily: sans, fontSize: 15, color: i === 3 ? "#DCA850" : "#E0DCD0", fontWeight: 500 }}>{step.label}</span>
                       </div>
-                      {step.icon && <span style={{ color: "#2E4A6E", fontSize: 16, fontFamily: mono }}>{step.icon}</span>}
+                      {step.icon && <span style={{ color: "#4A4640", fontSize: 16, fontFamily: mono }}>{step.icon}</span>}
                     </div>
                   ))}
                 </div>
                 <div style={{ display: "flex", gap: 16, marginTop: 20, flexWrap: "wrap", alignItems: "center" }}>
                   {[
-                    { verdict: "PASS", color: "#00D9A6", bg: "rgba(0,217,166,0.1)" },
-                    { verdict: "FLAG", color: "#E8B84A", bg: "rgba(232,184,74,0.1)" },
-                    { verdict: "BLOCK", color: "#E85A5A", bg: "rgba(232,90,90,0.1)" },
+                    { verdict: "PASS", color: "#5CB87A", bg: "rgba(92,184,122,0.1)" },
+                    { verdict: "FLAG", color: "#DCA850", bg: "rgba(220,168,80,0.1)" },
+                    { verdict: "BLOCK", color: "#D45454", bg: "rgba(212,84,84,0.1)" },
                   ].map((v, i) => (
                     <div key={i} style={{ padding: "6px 14px", background: v.bg, borderRadius: 4, border: `1px solid ${v.color}33` }}>
                       <span style={{ fontFamily: mono, fontSize: 12, color: v.color, fontWeight: 600, letterSpacing: "0.06em" }}>{v.verdict}</span>
                     </div>
                   ))}
-                  <span style={{ fontFamily: sans, fontSize: 15, color: "#8E9DBF" }}>— timestamped, locked, replayable under audit</span>
+                  <span style={{ fontFamily: sans, fontSize: 15, color: "#8A867C" }}>— timestamped, locked, replayable under audit</span>
                 </div>
               </div>
             </FadeIn>
@@ -563,7 +590,7 @@
     function WhyNow() {
       return (
         <section id="why-now" style={{
-          background: "linear-gradient(180deg, #0D1A38 0%, #10203E 50%, #0D1A38 100%)", padding: "100px 24px",
+          background: "linear-gradient(180deg, #111119 0%, #13131C 50%, #111119 100%)", padding: "100px 24px",
         }}>
           <div style={{ maxWidth: 900, margin: "0 auto" }}>
             <FadeIn>
@@ -571,7 +598,7 @@
               <SectionTitle>The deadline doesn't move.</SectionTitle>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <p style={{ fontFamily: sans, fontSize: 19, color: "#B0BDDA", lineHeight: 1.75, maxWidth: 660, marginBottom: 48 }}>
+              <p style={{ fontFamily: sans, fontSize: 19, color: "#CCC8BE", lineHeight: 1.75, maxWidth: 660, marginBottom: 48 }}>
                 The EU AI Act enforcement begins August 2, 2026. Three articles require exactly what PromptTank produces. The customer who needs this doesn't need to be convinced they have a problem. The law already did that.
               </p>
             </FadeIn>
@@ -582,29 +609,29 @@
                 { article: "Article 52", title: "Transparency", desc: "Clear disclosure when users interact with AI. Synthetic content must be detectable." },
               ].map((a, i) => (
                 <FadeIn key={i} delay={0.15 + i * 0.1}>
-                  <div style={{ padding: 24, borderRadius: 8, background: "rgba(18,30,61,0.5)", border: "1px solid rgba(74,144,196,0.18)", boxShadow: "0 2px 16px rgba(0,0,0,0.25)" }}>
-                    <span style={{ fontFamily: mono, fontSize: 11, color: "#4A90C4", letterSpacing: "0.08em", fontWeight: 600 }}>{a.article}</span>
-                    <h3 style={{ fontFamily: serif, fontSize: 19, fontWeight: 600, color: "#F0F2F7", margin: "8px 0 6px", letterSpacing: "-0.01em" }}>{a.title}</h3>
-                    <p style={{ fontFamily: sans, fontSize: 16, color: "#B0BDDA", lineHeight: 1.6, margin: 0 }}>{a.desc}</p>
+                  <div style={{ padding: 24, borderRadius: 8, background: "rgba(26,24,32,0.5)", border: "1px solid rgba(160,140,100,0.18)", boxShadow: "0 2px 16px rgba(0,0,0,0.25)" }}>
+                    <span style={{ fontFamily: mono, fontSize: 11, color: "#4D7AFF", letterSpacing: "0.08em", fontWeight: 600 }}>{a.article}</span>
+                    <h3 style={{ fontFamily: serif, fontSize: 19, fontWeight: 600, color: "#F0ECE2", margin: "8px 0 6px", letterSpacing: "-0.01em" }}>{a.title}</h3>
+                    <p style={{ fontFamily: sans, fontSize: 16, color: "#CCC8BE", lineHeight: 1.6, margin: 0 }}>{a.desc}</p>
                   </div>
                 </FadeIn>
               ))}
             </div>
             <FadeIn delay={0.5}>
               <div style={{
-                background: "rgba(0,217,166,0.06)", border: "1px solid rgba(0,217,166,0.15)",
+                background: "rgba(220,168,80,0.06)", border: "1px solid rgba(220,168,80,0.15)",
                 borderRadius: 8, padding: "24px 28px", display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap",
               }}>
                 <div>
-                  <span style={{ fontFamily: mono, fontSize: 28, fontWeight: 700, color: "#00D9A6" }}>Aug 2, 2026</span>
-                  <div style={{ fontFamily: sans, fontSize: 15, color: "#8BC4A8", marginTop: 2 }}>EU AI Act enforcement begins</div>
+                  <span style={{ fontFamily: mono, fontSize: 28, fontWeight: 700, color: "#DCA850" }}>Aug 2, 2026</span>
+                  <div style={{ fontFamily: sans, fontSize: 15, color: "#C8B478", marginTop: 2 }}>EU AI Act enforcement begins</div>
                 </div>
-                <div style={{ width: 1, height: 40, background: "rgba(0,217,166,0.2)" }} />
+                <div style={{ width: 1, height: 40, background: "rgba(220,168,80,0.2)" }} />
                 <div>
-                  <span style={{ fontFamily: mono, fontSize: 16, color: "#D4DAE7" }}>
-                    Fines up to <span style={{ color: "#00D9A6", fontWeight: 600 }}>€35M</span> or <span style={{ color: "#00D9A6", fontWeight: 600 }}>7%</span> of global revenue
+                  <span style={{ fontFamily: mono, fontSize: 16, color: "#E0DCD0" }}>
+                    Fines up to <span style={{ color: "#DCA850", fontWeight: 600 }}>€35M</span> or <span style={{ color: "#DCA850", fontWeight: 600 }}>7%</span> of global revenue
                   </span>
-                  <div style={{ fontFamily: sans, fontSize: 15, color: "#8E9DBF", marginTop: 2 }}>for failing to prove AI governance compliance</div>
+                  <div style={{ fontFamily: sans, fontSize: 15, color: "#8A867C", marginTop: 2 }}>for failing to prove AI governance compliance</div>
                 </div>
               </div>
             </FadeIn>
@@ -626,7 +653,7 @@
         { label: "AI Certifications", detail: "Vanderbilt University — Prompt Engineering, Agentic AI, AI Leadership" },
       ];
       return (
-        <section id="credibility" style={{ background: "#0B1530", padding: "100px 24px" }}>
+        <section id="credibility" style={{ background: "#0E0E16", padding: "100px 24px" }}>
           <div style={{ maxWidth: 900, margin: "0 auto" }}>
             <FadeIn>
               <SectionLabel text="Credibility" />
@@ -635,11 +662,11 @@
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
               {items.map((item, i) => (
                 <FadeIn key={i} delay={0.05 + i * 0.06}>
-                  <div style={{ display: "flex", alignItems: "flex-start", gap: 14, padding: "16px 0", borderBottom: "1px solid rgba(74,144,196,0.08)" }}>
-                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#00D9A6", marginTop: 6, flexShrink: 0 }} />
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 14, padding: "16px 0", borderBottom: "1px solid rgba(160,140,100,0.08)" }}>
+                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#DCA850", marginTop: 6, flexShrink: 0 }} />
                     <div>
-                      <div style={{ fontFamily: sans, fontSize: 17, fontWeight: 600, color: "#F0F2F7" }}>{item.label}</div>
-                      <div style={{ fontFamily: sans, fontSize: 15, color: "#8E9DBF", lineHeight: 1.5, marginTop: 2 }}>{item.detail}</div>
+                      <div style={{ fontFamily: sans, fontSize: 17, fontWeight: 600, color: "#F0ECE2" }}>{item.label}</div>
+                      <div style={{ fontFamily: sans, fontSize: 15, color: "#8A867C", lineHeight: 1.5, marginTop: 2 }}>{item.detail}</div>
                     </div>
                   </div>
                 </FadeIn>
@@ -654,46 +681,46 @@
     function Team() {
       return (
         <section id="team" style={{
-          background: "linear-gradient(180deg, #0B1530 0%, #0F1E40 50%, #0B1530 100%)", padding: "100px 24px",
+          background: "linear-gradient(180deg, #0E0E16 0%, #14141E 50%, #0E0E16 100%)", padding: "100px 24px",
         }}>
           <div style={{ maxWidth: 900, margin: "0 auto" }}>
             <FadeIn>
               <SectionLabel text="The Team" />
               <SectionTitle>Journalists who ended up inside AI systems.</SectionTitle>
-              <p style={{ fontFamily: sans, fontSize: 19, color: "#B0BDDA", lineHeight: 1.75, maxWidth: 660, marginBottom: 48 }}>
+              <p style={{ fontFamily: sans, fontSize: 19, color: "#CCC8BE", lineHeight: 1.75, maxWidth: 660, marginBottom: 48 }}>
                 Two career journalists who came up through newsrooms and then ended up inside AI systems at the ground level. What we kept seeing was the same problem everywhere: AI policies that had no enforcement at the machine level. The rules existed on paper. The model had no idea they existed.
               </p>
             </FadeIn>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 24 }}>
               <FadeIn delay={0.1}>
-                <div style={{ background: "rgba(18,30,61,0.5)", border: "1px solid rgba(74,144,196,0.18)", boxShadow: "0 2px 16px rgba(0,0,0,0.25)", borderRadius: 8, padding: "32px 28px" }}>
-                  <h3 style={{ fontFamily: serif, fontSize: 20, fontWeight: 600, color: "#F0F2F7", margin: "0 0 4px", letterSpacing: "-0.01em" }}>Dan McCarthy</h3>
-                  <span style={{ fontFamily: mono, fontSize: 12, color: "#4A90C4", letterSpacing: "0.04em" }}>Co-Founder · Communications + AI Strategy</span>
-                  <p style={{ fontFamily: sans, fontSize: 16, color: "#B0BDDA", lineHeight: 1.7, marginTop: 16, marginBottom: 16 }}>
+                <div style={{ background: "rgba(26,24,32,0.5)", border: "1px solid rgba(160,140,100,0.18)", boxShadow: "0 2px 16px rgba(0,0,0,0.25)", borderRadius: 8, padding: "32px 28px" }}>
+                  <h3 style={{ fontFamily: serif, fontSize: 20, fontWeight: 600, color: "#F0ECE2", margin: "0 0 4px", letterSpacing: "-0.01em" }}>Dan McCarthy</h3>
+                  <span style={{ fontFamily: mono, fontSize: 12, color: "#4D7AFF", letterSpacing: "0.04em" }}>Co-Founder · Communications + AI Strategy</span>
+                  <p style={{ fontFamily: sans, fontSize: 16, color: "#CCC8BE", lineHeight: 1.7, marginTop: 16, marginBottom: 16 }}>
                     20-year journalist turned AI builder. Published in Esquire, Fast Company, The Daily Beast, Vice, Boston Globe. Now building at the intersection of AI governance and applied prompt engineering — designing validation frameworks, stress-testing LLM behavior in regulated environments, and operating at the frontier of GEO and AI search optimization. Led enterprise AI strategy and communications programs in highly regulated industries. AI certifications from Vanderbilt. Active in the Massachusetts AI Coalition Storytelling task force.
                   </p>
-                  <div style={{ fontFamily: mono, fontSize: 12, color: "#7A8FAD" }}>AI builder · Prompt engineering · GEO/AI search · Regulated industries</div>
+                  <div style={{ fontFamily: mono, fontSize: 12, color: "#968E80" }}>AI builder · Prompt engineering · GEO/AI search · Regulated industries</div>
                 </div>
               </FadeIn>
               <FadeIn delay={0.2}>
-                <div style={{ background: "rgba(18,30,61,0.5)", border: "1px solid rgba(74,144,196,0.18)", boxShadow: "0 2px 16px rgba(0,0,0,0.25)", borderRadius: 8, padding: "32px 28px" }}>
-                  <h3 style={{ fontFamily: serif, fontSize: 20, fontWeight: 600, color: "#F0F2F7", margin: "0 0 4px", letterSpacing: "-0.01em" }}>C. Brian Smith</h3>
-                  <span style={{ fontFamily: mono, fontSize: 12, color: "#4A90C4", letterSpacing: "0.04em" }}>Co-Founder · AI Governance & Technical Strategy</span>
-                  <p style={{ fontFamily: sans, fontSize: 16, color: "#B0BDDA", lineHeight: 1.7, marginTop: 16, marginBottom: 16 }}>
+                <div style={{ background: "rgba(26,24,32,0.5)", border: "1px solid rgba(160,140,100,0.18)", boxShadow: "0 2px 16px rgba(0,0,0,0.25)", borderRadius: 8, padding: "32px 28px" }}>
+                  <h3 style={{ fontFamily: serif, fontSize: 20, fontWeight: 600, color: "#F0ECE2", margin: "0 0 4px", letterSpacing: "-0.01em" }}>C. Brian Smith</h3>
+                  <span style={{ fontFamily: mono, fontSize: 12, color: "#4D7AFF", letterSpacing: "0.04em" }}>Co-Founder · AI Governance & Technical Strategy</span>
+                  <p style={{ fontFamily: sans, fontSize: 16, color: "#CCC8BE", lineHeight: 1.7, marginTop: 16, marginBottom: 16 }}>
                     Co-architect of the patent-pending validation framework. Former Google Gemini global linguistics team. Co-authored 50+ technical analyses. Contributing writer to the AI & Ethics Journal peer-review submission.
                   </p>
-                  <div style={{ fontFamily: mono, fontSize: 12, color: "#7A8FAD" }}>AI linguistics · Governance architecture · Peer-reviewed research</div>
+                  <div style={{ fontFamily: mono, fontSize: 12, color: "#968E80" }}>AI linguistics · Governance architecture · Peer-reviewed research</div>
                 </div>
               </FadeIn>
             </div>
             <FadeIn delay={0.35}>
               <div style={{
-                marginTop: 24, background: "rgba(0,217,166,0.06)", border: "1px solid rgba(0,217,166,0.15)",
+                marginTop: 24, background: "rgba(220,168,80,0.06)", border: "1px solid rgba(220,168,80,0.15)",
                 borderRadius: 8, padding: "20px 24px", display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap",
               }}>
-                <span style={{ fontFamily: mono, fontSize: 12, color: "#00D9A6", fontWeight: 600, letterSpacing: "0.06em" }}>NOW RECRUITING</span>
-                <span style={{ fontFamily: sans, fontSize: 16, color: "#D4DAE7" }}>CTO / Technical Co-Founder to lead engineering.</span>
-                <a href="#contact" style={{ marginLeft: "auto", fontFamily: sans, fontSize: 13, color: "#00D9A6", fontWeight: 600 }}>Let's talk →</a>
+                <span style={{ fontFamily: mono, fontSize: 12, color: "#DCA850", fontWeight: 600, letterSpacing: "0.06em" }}>NOW RECRUITING</span>
+                <span style={{ fontFamily: sans, fontSize: 16, color: "#E0DCD0" }}>CTO / Technical Co-Founder to lead engineering.</span>
+                <a href="#contact" style={{ marginLeft: "auto", fontFamily: sans, fontSize: 13, color: "#DCA850", fontWeight: 600 }}>Let's talk →</a>
               </div>
             </FadeIn>
           </div>
@@ -705,7 +732,7 @@
     function Vision() {
       return (
         <section id="vision" style={{
-          background: "linear-gradient(180deg, #0B1530, #0E1B3A)", padding: "100px 24px", position: "relative",
+          background: "linear-gradient(180deg, #0E0E16, #10101A)", padding: "100px 24px", position: "relative",
         }}>
           <div style={{
             position: "absolute", bottom: 0, left: 0, right: 0, height: 200,
@@ -717,15 +744,15 @@
               <SectionTitle>The SSL moment for AI.</SectionTitle>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <p style={{ fontFamily: sans, fontSize: 19, color: "#B0BDDA", lineHeight: 1.8, marginBottom: 24 }}>
+              <p style={{ fontFamily: sans, fontSize: 19, color: "#CCC8BE", lineHeight: 1.8, marginBottom: 24 }}>
                 SSL made it safe to send a credit card over the internet. It didn't compete with web servers — it became the layer every transaction ran on.
               </p>
-              <p style={{ fontFamily: sans, fontSize: 19, color: "#B0BDDA", lineHeight: 1.8, marginBottom: 24 }}>
+              <p style={{ fontFamily: sans, fontSize: 19, color: "#CCC8BE", lineHeight: 1.8, marginBottom: 24 }}>
                 UL Certification. PCI-DSS. SOC 2. FDA oversight. Every industry that matters went through a moment where a safety standard became non-negotiable infrastructure.
               </p>
-              <p style={{ fontFamily: serif, fontSize: 21, color: "#E8ECF4", lineHeight: 1.7, fontWeight: 600 }}>
+              <p style={{ fontFamily: serif, fontSize: 21, color: "#EAE6DC", lineHeight: 1.7, fontWeight: 600 }}>
                 That standard doesn't exist for AI yet.<br />
-                <span style={{ color: "#00D9A6" }}>We're building it.</span>
+                <span style={{ color: "#DCA850" }}>We're building it.</span>
               </p>
             </FadeIn>
           </div>
@@ -736,33 +763,33 @@
     // ─── CONTACT ────────────────────────────────────────────────────
     function Contact() {
       return (
-        <section id="contact" style={{ background: "#0B1530", padding: "100px 24px 80px", borderTop: "1px solid rgba(74,144,196,0.08)" }}>
+        <section id="contact" style={{ background: "#0E0E16", padding: "100px 24px 80px", borderTop: "1px solid rgba(160,140,100,0.08)" }}>
           <div style={{ maxWidth: 560, margin: "0 auto", textAlign: "center" }}>
             <FadeIn>
               <SectionLabel text="Contact" />
-              <h2 style={{ fontFamily: serif, fontSize: "clamp(24px, 3.5vw, 36px)", fontWeight: 700, color: "#F0F2F7", letterSpacing: "-0.02em", margin: "16px 0 16px" }}>
+              <h2 style={{ fontFamily: serif, fontSize: "clamp(24px, 3.5vw, 36px)", fontWeight: 700, color: "#F0ECE2", letterSpacing: "-0.02em", margin: "16px 0 16px" }}>
                 Let's talk.
               </h2>
-              <p style={{ fontFamily: sans, fontSize: 15, color: "#B0BDDA", lineHeight: 1.7, marginBottom: 32 }}>
+              <p style={{ fontFamily: sans, fontSize: 15, color: "#CCC8BE", lineHeight: 1.7, marginBottom: 32 }}>
                 Investors, enterprise partners, and technical co-founders — we'd like to hear from you.
               </p>
             </FadeIn>
             <FadeIn delay={0.15}>
               <a href="mailto:dan@theprompttank.com" style={{
-                display: "inline-block", padding: "16px 40px", background: "#00D9A6", color: "#0B1530",
+                display: "inline-block", padding: "16px 40px", background: "#DCA850", color: "#0E0E16",
                 fontFamily: sans, fontWeight: 600, fontSize: 16, borderRadius: 6, letterSpacing: "-0.01em",
                 transition: "transform 0.2s, box-shadow 0.2s",
               }}
-                onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 8px 30px rgba(0,217,166,0.25)"; }}
+                onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 8px 30px rgba(220,168,80,0.25)"; }}
                 onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}
               >dan@theprompttank.com</a>
             </FadeIn>
-            <div style={{ marginTop: 80, paddingTop: 32, borderTop: "1px solid rgba(74,144,196,0.08)" }}>
+            <div style={{ marginTop: 80, paddingTop: 32, borderTop: "1px solid rgba(160,140,100,0.08)" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 8 }}>
                 <LogoSVG size={20} />
-                <LogoText size={14} color="#8E9DBF" />
+                <LogoText size={14} color="#8A867C" />
               </div>
-              <p style={{ fontFamily: mono, fontSize: 11, color: "#5A6F8E", letterSpacing: "0.02em" }}>
+              <p style={{ fontFamily: mono, fontSize: 11, color: "#6E6A5E", letterSpacing: "0.02em" }}>
                 Governance Infrastructure for the AI Era · Patent-Pending · Massachusetts
               </p>
             </div>
